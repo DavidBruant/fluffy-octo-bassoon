@@ -1,19 +1,21 @@
 <script>
+	//@ts-check
 	export let onMessageReady
-	export let placeholder = 'ici'
+	export let message = '';
 
 	function onSubmit(e){
 		e.preventDefault()
-		onMessageReady(e.target.querySelector('textarea').value)
+		onMessageReady(message)
 	}
 </script>
 
 <section>
 	<h2>Rédiger un message</h2>
 	<form on:submit={onSubmit}>
-		<textarea {placeholder}></textarea>
+		<textarea placeholder="ici" bind:value={message}></textarea>
 		<button type="submit">Envoyer à la mer</button>
 	</form>
+	<div>{message}</div>
 </section>
 
 
